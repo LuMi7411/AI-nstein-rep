@@ -1,7 +1,7 @@
 
 import streamlit as st
 import random
-
+import requests
 import os
 
 st.set_page_config(page_title="AI-nstein - Scienze", page_icon="🧬", layout="centered")
