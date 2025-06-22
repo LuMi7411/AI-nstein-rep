@@ -38,7 +38,7 @@ domande = [
     {
         "domanda": "Quali onde sismiche sono più pericolose?",
         "opzioni": ["Onde S", "Onde P", "Onde superficiali"],
-        "corretta": "Onde P",
+        "corretta": "Onde superficiali",
         "spiegazione": "Le onde di superficie che si generano nell'epicentro a causa dell'arrivo delle onde P ed S. Sono le onde più pericolose, quelle che causano la maggior parte dei danni nei terremoti. Fonte: Wikiversità\Terremoti.",
         "immagine": "terremoto.png"
     },
