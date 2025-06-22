@@ -124,7 +124,7 @@ if not st.session_state.fine:
             st.session_state.risposto = False
             if st.session_state.indice >= len(domande):
                 st.session_state.fine = True
-            st.experimental_rerun() # Forza un re-run per mostrare la nuova domanda subito
+            st.rerun() # Forza un re-run per mostrare la nuova domanda subito
 else:
     st.balloons()
     st.success(f"Hai completato il quiz! ✅ Punteggio: {st.session_state.punteggio} su {len(domande)}")
@@ -133,7 +133,7 @@ else:
         st.session_state.punteggio = 0
         st.session_state.fine = False
         st.session_state.risposto = False
-        st.experimental_rerun() # Forza un re-run per ricominciare il quiz
+        st.rerun() # Forza un re-run per ricominciare il quiz
 
 st.markdown("---")
 
