@@ -151,8 +151,8 @@ if "hf_api_key" not in st.session_state:
 def chiedi_a_huggingface(messaggio_utente):
     # L'URL corretto per l'inferenza di un modello specifico su Hugging Face è:
     # [https://api-inference.huggingface.co/models/](https://api-inference.huggingface.co/models/){nome_del_modello}
-    MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.2" # Il tuo modello
-    API_URL = f"https://api-inference.huggingface.co/models/{MODEL_ID}" # URL dinamico
+    MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.3" # Il tuo modello
+    API_URL = f"https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3" # URL dinamico
 
     headers = {"Authorization": f"Bearer {st.session_state.hf_api_key}"}
     payload = {
