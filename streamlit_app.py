@@ -14,14 +14,14 @@ domande = [
         "domanda": "Secondo quale teoria geologica i continenti migrano, spostandosi sullo strato inferiore della crosta terrestre?",
         "opzioni": ["Tettonica a zolle", "Deriva dei continenti", "Espansione dei fondali"],
         "corretta": "Deriva dei continenti",
-        "spiegazione": "La deriva dei continenti è una teoria geologica secondo la quale i continenti migrano sullo strato inferiore della crosta terrestre. Le zolle o placche che costituiscono la crosta terrestre si spostano di appena pochi centimetri ogni anno. Tuttavia, nei milioni di anni d'età del nostro pianeta, hanno percorso migliaia di chilometri, originando nuove dorsali oceaniche (Wikipedia/Deriva dei continenti)",
+        "spiegazione": "La deriva dei continenti è una teoria geologica secondo la quale i continenti migrano sullo strato inferiore della crosta terrestre. Le zolle o placche che costituiscono la crosta terrestre si spostano di appena pochi centimetri ogni anno. Tuttavia, nei milioni di anni d'età del nostro pianeta, hanno percorso migliaia di chilometri. Fonte: Wikipedia/Deriva dei continenti",
         "immagine": "pangea.png"
     },
     {
         "domanda": "Il magma a differenza della lava, è materiale fuso ricco di?",
         "opzioni": ["Gas", "Ferro", "Ghiaccio"],
         "corretta": "Gas",
-        "spiegazione": "Dal punto di vista geochimico, il magma è distinto dalla lava, poiché possiede ancora la componente gassosa disciolta.(Wikipedia\Magma)",
+        "spiegazione": "Dal punto di vista geochimico, il magma è distinto dalla lava, poiché possiede ancora la componente gassosa disciolta. Fonte: Wikipedia\Magma",
         "immagine": "lava.png"
     },
     {
@@ -32,14 +32,14 @@ domande = [
             "Sedimentarie"
         ],
         "corretta": "Sedimentarie",
-        "spiegazione": "Le rocce sedimentarie clastiche derivano da sedimenti i cui elementi costituenti a loro volta derivano principalmente dall'accumulo di frammenti litici di altre rocce alterate trasportati in genere da agenti esogeni diversi. (Wikipedia\Roccia sedimentaria clastica)",
+        "spiegazione": "Le rocce sedimentarie clastiche derivano da sedimenti i cui elementi costituenti a loro volta derivano principalmente dall'accumulo di frammenti litici di altre rocce alterate trasportati in genere da agenti esogeni diversi. Fonte: Wikipedia\Roccia sedimentaria clastica.",
         "immagine": "rocce.png"
     },
     {
         "domanda": "Quali onde sismiche sono più pericolose?",
         "opzioni": ["Onde S", "Onde P", "Onde superficiali"],
         "corretta": "Onde P",
-        "spiegazione": "Le onde di superficie che si generano nell'epicentro a causa dell'arrivo delle onde P ed S. Sono le onde più pericolose, quelle che causano la maggior parte dei danni nei terremoti. (Wikiversità\Terremoti",
+        "spiegazione": "Le onde di superficie che si generano nell'epicentro a causa dell'arrivo delle onde P ed S. Sono le onde più pericolose, quelle che causano la maggior parte dei danni nei terremoti. Fonte: Wikiversità\Terremoti.",
         "immagine": "terremoto.png"
     },
     {
