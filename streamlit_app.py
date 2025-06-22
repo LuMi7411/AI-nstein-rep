@@ -135,7 +135,7 @@ else:
         st.session_state.risposto = False
         st.experimental_rerun() # Forza un re-run per ricominciare il quiz
 
-st.markdown(---)
+st.markdown("---")
 
 ### Sezione chatbot AI con Hugging Face (Modificata)
 
