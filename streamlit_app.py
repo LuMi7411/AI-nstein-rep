@@ -149,10 +149,10 @@ if "hf_api_key" not in st.session_state:
     st.session_state.hf_api_key = st.secrets.get("HF_API_KEY", "") 
 
 def chiedi_a_huggingface(messaggio_utente):
-    # L'URL corretto per l'inferenza di un modello specifico su Hugging Face è:
-    # [https://api-inference.huggingface.co/models/](https://api-inference.huggingface.co/models/){nome_del_modello}
     MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.3" # Il tuo modello
-    API_URL = f"https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3" # URL dinamico
+
+    # --- QUESTA È LA RIGA DA MODIFICARE ---
+    API_URL = f"https://api-inference.huggingface.co/models/{MODEL_ID}" # URL CORRETTO per l'API di inferenza
 
     headers = {"Authorization": f"Bearer {st.session_state.hf_api_key}"}
     payload = {
@@ -161,13 +161,11 @@ def chiedi_a_huggingface(messaggio_utente):
     }
     
     try:
-        response = requests.post(API_URL, headers=headers, json=payload, timeout=60) # Aggiunto timeout
+        response = requests.post(API_URL, headers=headers, json=payload, timeout=60)
         response.raise_for_status() # Lancia un'eccezione per codici di stato HTTP errati (4xx o 5xx)
         
-        # Controlla che la risposta JSON sia come ci aspettiamo
         if response.json() and isinstance(response.json(), list) and len(response.json()) > 0 and "generated_text" in response.json()[0]:
             generated_text = response.json()[0]["generated_text"]
-            # Estraiamo solo la parte della risposta dopo [/INST]
             return generated_text.split("[/INST]")[-1].strip()
         else:
             return "❌ Errore nella risposta dell'API di Hugging Face: formato inatteso."
@@ -175,7 +173,6 @@ def chiedi_a_huggingface(messaggio_utente):
         return f"❌ Errore di connessione o API: {e}"
     except Exception as e:
         return f"❌ Si è verificato un errore inaspettato: {e}"
-
 
 if user_question and st.session_state.hf_api_key:
     with st.spinner("AI-nstein sta pensando..."):
