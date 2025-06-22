@@ -11,10 +11,10 @@ st.markdown("Rispondi alle domande di Scienze! Se sbagli, ti spiego. 🤓")
 # Domande (Il tuo array di domande è corretto, lo ometto per brevità)
 domande = [
     {
-        "domanda": "Quale parte della cellula contiene il materiale genetico?",
-        "opzioni": ["Mitocondrio", "Nucleo", "Citoplasma", "Membrana"],
-        "corretta": "Nucleo",
-        "spiegazione": "Il nucleo contiene il DNA, il materiale genetico.",
+        "domanda": "Secondo quale teoria geologica i continenti migrano, spostandosi sullo strato inferiore della crosta terrestre?",
+        "opzioni": ["Tettonica a zolle", "Deriva dei continenti", "Espansione dei fondali"],
+        "corretta": "Deriva dei continenti",
+        "spiegazione": "La deriva dei continenti è una teoria geologica secondo la quale i continenti migrano sullo strato inferiore della crosta terrestre. Le zolle o placche che costituiscono la crosta terrestre si spostano di appena pochi centimetri ogni anno. Tuttavia, nei milioni di anni d'età del nostro pianeta, hanno percorso migliaia di chilometri, originando nuove dorsali oceaniche (Wikipedia/Deriva dei continenti)",
         "immagine": "nucleo.png"
     },
     {
