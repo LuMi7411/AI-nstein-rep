@@ -1,13 +1,13 @@
-
 import streamlit as st
 import random
 import os
+import requests
 
 st.set_page_config(page_title="AI-nstein - Scienze", page_icon="🧬", layout="centered")
 st.title("🔬 AI-nstein - Ripasso di Scienze")
 st.markdown("Rispondi alle domande di Scienze! Se sbagli, ti spiego. 😄")
 
-# Domande
+# Domande (Il tuo array di domande è corretto, lo ometto per brevità)
 domande = [
     {
         "domanda": "Quale parte della cellula contiene il materiale genetico?",
@@ -86,21 +86,30 @@ domande = [
     }
 ]
 
-# Stato dell'app
+# Stato dell'app (il tuo codice è corretto, lo ometto per brevità)
 if "indice" not in st.session_state:
     st.session_state.indice = 0
     st.session_state.punteggio = 0
     st.session_state.fine = False
     st.session_state.risposto = False
 
-# Mostra domanda
+# Mostra domanda (il tuo codice è corretto, lo ometto per brevità)
 if not st.session_state.fine:
     q = domande[st.session_state.indice]
-    st.image("immagini/" + q["immagine"], width=300)
-    st.subheader(q["domanda"])
-    scelta = st.radio("Scegli una risposta:", q["opzioni"], key=st.session_state.indice)
+    
+    # Assicurati che il percorso dell'immagine sia corretto.
+    # Se le immagini sono nella stessa directory dello script o in una sottocartella "immagini", questo va bene.
+    # Altrimenti, potresti dover modificare il percorso.
+    try:
+        st.image(os.path.join("immagini", q["immagine"]), width=300)
+    except FileNotFoundError:
+        st.warning(f"Immagine non trovata: immagini/{q['immagine']}. Assicurati che il file esista nel percorso specificato.")
+        st.image("https://via.placeholder.com/300x200?text=Immagine+non+trovata", width=300) # Immagine placeholder
 
-    if st.button("Verifica risposta") and not st.session_state.risposto:
+    st.subheader(q["domanda"])
+    scelta = st.radio("Scegli una risposta:", q["opzioni"], key=f"domanda_{st.session_state.indice}") # Usiamo una chiave unica
+
+    if st.button("Verifica risposta", key=f"verifica_{st.session_state.indice}") and not st.session_state.risposto:
         st.session_state.risposto = True
         if scelta == q["corretta"]:
             st.success("Bravo! Hai risposto correttamente 🎉")
@@ -110,11 +119,12 @@ if not st.session_state.fine:
             st.info(f"Spiegazione: {q['spiegazione']}")
 
     if st.session_state.risposto:
-        if st.button("Prossima domanda"):
+        if st.button("Prossima domanda", key=f"prossima_{st.session_state.indice}"):
             st.session_state.indice += 1
             st.session_state.risposto = False
             if st.session_state.indice >= len(domande):
                 st.session_state.fine = True
+            st.experimental_rerun() # Forza un re-run per mostrare la nuova domanda subito
 else:
     st.balloons()
     st.success(f"Hai completato il quiz! ✅ Punteggio: {st.session_state.punteggio} su {len(domande)}")
@@ -123,31 +133,50 @@ else:
         st.session_state.punteggio = 0
         st.session_state.fine = False
         st.session_state.risposto = False
+        st.experimental_rerun() # Forza un re-run per ricominciare il quiz
 
-# Sezione chatbot AI con Hugging Face
-import requests
+---
 
+### Sezione chatbot AI con Hugging Face (Modificata)
+
+```python
 st.markdown("---")
 st.header("🤖 Chatta con AI-nstein")
 
-user_question = st.text_input("Fai una domanda di scienze:")
+user_question = st.text_input("Fai una domanda di scienze:", key="chatbot_input") # Aggiunto key
 
 if "hf_api_key" not in st.session_state:
-    st.session_state.hf_api_key = st.secrets["HF_API_KEY"] if "HF_API_KEY" in st.secrets else ""
+    # È buona pratica chiedere la chiave direttamente se non è nei secrets
+    st.session_state.hf_api_key = st.secrets.get("HF_API_KEY", "") 
 
 def chiedi_a_huggingface(messaggio_utente):
-    API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1"
+    # L'URL corretto per l'inferenza di un modello specifico su Hugging Face è:
+    # [https://api-inference.huggingface.co/models/](https://api-inference.huggingface.co/models/){nome_del_modello}
+    MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.1" # Il tuo modello
+    API_URL = f"[https://api-inference.huggingface.co/models/](https://api-inference.huggingface.co/models/){MODEL_ID}" # URL dinamico
+    
     headers = {"Authorization": f"Bearer {st.session_state.hf_api_key}"}
     payload = {
         "inputs": f"[INST] Sei un assistente simpatico ma scientificamente rigoroso. Rispondi alla seguente domanda per studenti delle scuole medie: {messaggio_utente} [/INST]",
         "options": {"wait_for_model": True}
     }
-    response = requests.post(API_URL, headers=headers, json=payload)
-    if response.status_code == 200:
-        generated_text = response.json()[0]["generated_text"]
-        return generated_text.split("[/INST]")[-1].strip()
-    else:
-        return f"❌ Errore Hugging Face: {response.status_code} - {response.text}"
+    
+    try:
+        response = requests.post(API_URL, headers=headers, json=payload, timeout=60) # Aggiunto timeout
+        response.raise_for_status() # Lancia un'eccezione per codici di stato HTTP errati (4xx o 5xx)
+        
+        # Controlla che la risposta JSON sia come ci aspettiamo
+        if response.json() and isinstance(response.json(), list) and len(response.json()) > 0 and "generated_text" in response.json()[0]:
+            generated_text = response.json()[0]["generated_text"]
+            # Estraiamo solo la parte della risposta dopo [/INST]
+            return generated_text.split("[/INST]")[-1].strip()
+        else:
+            return "❌ Errore nella risposta dell'API di Hugging Face: formato inatteso."
+    except requests.exceptions.RequestException as e:
+        return f"❌ Errore di connessione o API: {e}"
+    except Exception as e:
+        return f"❌ Si è verificato un errore inaspettato: {e}"
+
 
 if user_question and st.session_state.hf_api_key:
     with st.spinner("AI-nstein sta pensando..."):
