@@ -32,15 +32,15 @@ domande = [
             "Sedimentarie"
         ],
         "corretta": "Sedimentarie",
-        "spiegazione": "Le rocce sedimentarie clastiche (dal greco antico: κλαστός?, klastós, "spezzato, rotto, sminuzzato") o rocce detritiche derivano da sedimenti i cui elementi costituenti a loro volta derivano principalmente dall'accumulo di frammenti litici di altre rocce alterate trasportati in genere da agenti esogeni diversi. (Wikipedia\Roccia sedimentaria clastica)",
+        "spiegazione": "Le rocce sedimentarie clastiche derivano da sedimenti i cui elementi costituenti a loro volta derivano principalmente dall'accumulo di frammenti litici di altre rocce alterate trasportati in genere da agenti esogeni diversi. (Wikipedia\Roccia sedimentaria clastica)",
         "immagine": "rocce.png"
     },
     {
-        "domanda": "Quale organo pompa il sangue nel corpo umano?",
-        "opzioni": ["Polmone", "Cervello", "Fegato", "Cuore"],
-        "corretta": "Cuore",
-        "spiegazione": "Il cuore è l’organo che pompa il sangue in tutto il corpo.",
-        "immagine": "cuore.png"
+        "domanda": "Quali onde sismiche sono più pericolose?",
+        "opzioni": ["Onde S", "Onde P", "Onde superficiali"],
+        "corretta": "Onde P",
+        "spiegazione": "Le onde di superficie che si generano nell' epicentro a causa dell'arrivo delle onde P ed S. Sono le onde più pericolose, quelle che causano la maggior parte dei danni nei terremoti. (Wikiversità\Terremoti",
+        "immagine": "terremoto.png"
     },
     {
         "domanda": "Qual è il gas più abbondante nell'atmosfera terrestre?",
