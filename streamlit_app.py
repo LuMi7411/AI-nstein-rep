@@ -139,7 +139,6 @@ st.markdown("---")
 
 ### Sezione chatbot AI con Hugging Face (Modificata)
 
-```python
 st.markdown("---")
 st.header("🤖 Chatta con AI-nstein")
 
