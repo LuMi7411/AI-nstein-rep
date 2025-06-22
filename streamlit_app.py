@@ -15,14 +15,14 @@ domande = [
         "opzioni": ["Tettonica a zolle", "Deriva dei continenti", "Espansione dei fondali"],
         "corretta": "Deriva dei continenti",
         "spiegazione": "La deriva dei continenti è una teoria geologica secondo la quale i continenti migrano sullo strato inferiore della crosta terrestre. Le zolle o placche che costituiscono la crosta terrestre si spostano di appena pochi centimetri ogni anno. Tuttavia, nei milioni di anni d'età del nostro pianeta, hanno percorso migliaia di chilometri, originando nuove dorsali oceaniche (Wikipedia/Deriva dei continenti)",
-        "immagine": "nucleo.png"
+        "immagine": "pangea.png"
     },
     {
-        "domanda": "Qual è la funzione principale dei mitocondri?",
-        "opzioni": ["Digestione", "Produzione di energia", "Difesa", "Controllo cellulare"],
-        "corretta": "Produzione di energia",
-        "spiegazione": "I mitocondri producono energia (ATP) nella cellula.",
-        "immagine": "mitocondrio.png"
+        "domanda": "Il magma a differenza della lava, è materiale fuso ricco di?",
+        "opzioni": ["Gas", "Ferro", "Ghiaccio"],
+        "corretta": "Gas",
+        "spiegazione": "Dal punto di vista geochimico, il magma è distinto dalla lava, poiché possiede ancora la componente gassosa disciolta.(Wikipedia\Magma)",
+        "immagine": "lava.png"
     },
     {
         "domanda": "Che cos'è la fotosintesi?",
