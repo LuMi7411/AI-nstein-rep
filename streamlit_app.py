@@ -39,50 +39,15 @@ domande = [
         "domanda": "Quali onde sismiche sono più pericolose?",
         "opzioni": ["Onde S", "Onde P", "Onde superficiali"],
         "corretta": "Onde P",
-        "spiegazione": "Le onde di superficie che si generano nell' epicentro a causa dell'arrivo delle onde P ed S. Sono le onde più pericolose, quelle che causano la maggior parte dei danni nei terremoti. (Wikiversità\Terremoti",
+        "spiegazione": "Le onde di superficie che si generano nell'epicentro a causa dell'arrivo delle onde P ed S. Sono le onde più pericolose, quelle che causano la maggior parte dei danni nei terremoti. (Wikiversità\Terremoti",
         "immagine": "terremoto.png"
     },
     {
-        "domanda": "Qual è il gas più abbondante nell'atmosfera terrestre?",
-        "opzioni": ["Ossigeno", "Anidride carbonica", "Azoto", "Idrogeno"],
-        "corretta": "Azoto",
-        "spiegazione": "L'azoto costituisce circa il 78% dell'atmosfera.",
-        "immagine": "atmosfera.png"
-    },
-    {
-        "domanda": "In che organo avviene la digestione delle proteine?",
-        "opzioni": ["Bocca", "Stomaco", "Intestino", "Fegato"],
-        "corretta": "Stomaco",
-        "spiegazione": "Le proteine iniziano a essere digerite nello stomaco.",
-        "immagine": "stomaco.png"
-    },
-    {
-        "domanda": "Quale pianeta è noto come il pianeta rosso?",
-        "opzioni": ["Venere", "Giove", "Marte", "Saturno"],
-        "corretta": "Marte",
-        "spiegazione": "Marte è chiamato così per il suo colore rosso.",
-        "immagine": "marte.png"
-    },
-    {
-        "domanda": "Cosa producono i globuli rossi?",
-        "opzioni": ["Ossigeno", "Anticorpi", "Emoglobina", "Energia"],
-        "corretta": "Emoglobina",
-        "spiegazione": "I globuli rossi trasportano l'ossigeno grazie all'emoglobina.",
-        "immagine": "globuli_rossi.png"
-    },
-    {
-        "domanda": "Come si chiama il processo con cui le cellule si dividono?",
-        "opzioni": ["Respirazione", "Mitòsi", "Fotosintesi", "Osmosi"],
-        "corretta": "Mitòsi",
-        "spiegazione": "La mitosi è la divisione cellulare che genera due cellule figlie.",
-        "immagine": "mitosi.png"
-    },
-    {
-        "domanda": "Quale apparato è responsabile della respirazione?",
-        "opzioni": ["Circolatorio", "Digestivo", "Respiratorio", "Nervoso"],
-        "corretta": "Respiratorio",
-        "spiegazione": "L’apparato respiratorio scambia gas tra corpo e ambiente.",
-        "immagine": "respiratorio.png"
+        "domanda": "Qual é la probabilità che lanciando due volte una moneta esca testa in entrambi i lanci?",
+        "opzioni": ["25%", "50%", "75%"],
+        "corretta": "25%",
+        "spiegazione": "Il caso favorevole è uno mentre i casi possibili sono quattro: testa-testa, testa-croce, croce-testa, croce-croce.",
+        "immagine": "moneta.png"
     }
 ]
 
