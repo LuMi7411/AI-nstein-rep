@@ -125,30 +125,34 @@ else:
         st.session_state.fine = False
         st.session_state.risposto = False
 
-# Sezione chatbot AI
+# Sezione chatbot AI con Hugging Face
+import requests
+
 st.markdown("---")
 st.header("🤖 Chatta con AI-nstein")
 
 user_question = st.text_input("Fai una domanda di scienze:")
 
-if "openai_api_key" not in st.session_state:
-    st.session_state.openai_api_key = st.secrets["OPENAI_API_KEY"] if "OPENAI_API_KEY" in st.secrets else ""
+if "hf_api_key" not in st.session_state:
+    st.session_state.hf_api_key = st.secrets["HF_API_KEY"] if "HF_API_KEY" in st.secrets else ""
 
-if user_question and st.session_state.openai_api_key:
-    openai.api_key = st.session_state.openai_api_key
+def chiedi_a_huggingface(messaggio_utente):
+    API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1"
+    headers = {"Authorization": f"Bearer {st.session_state.hf_api_key}"}
+    payload = {
+        "inputs": f"[INST] Sei un assistente simpatico ma scientificamente rigoroso. Rispondi alla seguente domanda per studenti delle scuole medie: {messaggio_utente} [/INST]",
+        "options": {"wait_for_model": True}
+    }
+    response = requests.post(API_URL, headers=headers, json=payload)
+    if response.status_code == 200:
+        generated_text = response.json()[0]["generated_text"]
+        return generated_text.split("[/INST]")[-1].strip()
+    else:
+        return f"❌ Errore Hugging Face: {response.status_code} - {response.text}"
+
+if user_question and st.session_state.hf_api_key:
     with st.spinner("AI-nstein sta pensando..."):
-        try:
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "Sei un assistente simpatico e amichevole, ma sempre scientificamente rigoroso. Rispondi a domande di Scienze per studenti delle scuole medie."},
-                    {"role": "user", "content": user_question}
-                ]
-            )
-            risposta = response["choices"][0]["message"]["content"]
-            st.success(risposta)
-        except Exception as e:
-            st.error("Errore nella risposta AI: " + str(e))
-
+        risposta = chiedi_a_huggingface(user_question)
+        st.success(risposta)
 elif user_question:
-    st.warning("⚠️ Inserisci la tua OpenAI API Key nel file .streamlit/secrets.toml per usare il chatbot.")
+    st.warning("⚠️ Inserisci la tua Hugging Face API Key nei secrets per usare il chatbot.")
