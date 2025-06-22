@@ -5,7 +5,7 @@ import requests
 
 st.set_page_config(page_title="AI-nstein - Scienze", page_icon="🧬", layout="centered")
 st.title("🔬 AI-nstein - Ripasso di Scienze")
-st.markdown("💪 **Powered by MICHELE CASTRIOTTA** v1 del 22/06/2025")
+st.markdown("💪 **Powered by MICHELE CASTRIOTTA**. V1 del 22/06/2025")
 st.markdown("Rispondi alle domande di Scienze! Se sbagli, ti spiego. 🤓")
 
 # Domande (Il tuo array di domande è corretto, lo ometto per brevità)
