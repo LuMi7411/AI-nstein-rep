@@ -25,16 +25,15 @@ domande = [
         "immagine": "lava.png"
     },
     {
-        "domanda": "Che cos'è la fotosintesi?",
+        "domanda": "Le rocce clastiche sono rocce:",
         "opzioni": [
-            "Un processo di respirazione",
-            "La trasformazione della luce in energia chimica",
-            "La digestione delle proteine",
-            "L’assorbimento dell'acqua dal terreno"
+            "Ignee intrusive",
+            "Ignee effusive ",
+            "Sedimentarie"
         ],
-        "corretta": "La trasformazione della luce in energia chimica",
-        "spiegazione": "La fotosintesi trasforma luce, CO₂ e acqua in zuccheri.",
-        "immagine": "fotosintesi.png"
+        "corretta": "Sedimentarie",
+        "spiegazione": "Le rocce sedimentarie clastiche (dal greco antico: κλαστός?, klastós, "spezzato, rotto, sminuzzato") o rocce detritiche derivano da sedimenti i cui elementi costituenti a loro volta derivano principalmente dall'accumulo di frammenti litici di altre rocce alterate trasportati in genere da agenti esogeni diversi. (Wikipedia\Roccia sedimentaria clastica)",
+        "immagine": "rocce.png"
     },
     {
         "domanda": "Quale organo pompa il sangue nel corpo umano?",
